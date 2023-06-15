@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "h3r"
+version = "0.1.0"
+description = "H3R wrapper for Python."
+authors = ["Danilo Horta <horta@ebi.ac.uk>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "h3r" }]
+include = [
+	{ path = "h3r/*.so", format = "wheel" },
+	{ path = "h3r/*.pyd", format = "wheel" },
+	{ path = "h3r/lib/lib*", format = "wheel" },
+	{ path = "build_ext.py", format = "sdist" },
+]
+
+[tool.poetry.dependencies]
+cffi = "*"
+python = "^3.9"
+
+[tool.poetry.build]
+script = "build_ext.py"
+generate-setup-file = false
+
+[build-system]
+requires = ["poetry-core", "cffi", "cmake", "patchelf;sys_platform=='linux'"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.cibuildwheel]
+skip = ["*i686"]
