@@ -1,3 +1,8 @@
+h3r/include
+h3r/share
+.build_ext/
+h3r/cffi.c
+h3r/cffi.o
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
